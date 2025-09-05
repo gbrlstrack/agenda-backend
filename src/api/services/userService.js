@@ -22,12 +22,12 @@ const create = async (userData) => {
 }
 
 const getAll = async () => {
-    const users = await userModel.findAll();
+    const users = await userModel.getAll();
     return users;
 };
 
 const getById = async (id) => {
-    const user = await userModel.findById(id)
+    const user = await userModel.getById(id)
 
     if (!user) throw new Error("Usuário não existe")
 

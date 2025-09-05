@@ -1,5 +1,6 @@
 const express = require('express');
 const userRoutes = require('./api/routes/userRoutes');
+//TODO: construir um middleware de errorHandler
 // const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
