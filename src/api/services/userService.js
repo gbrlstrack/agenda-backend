@@ -31,9 +31,7 @@ const getById = async (id) => {
 const update = async (id, newData) => {
     await getById(id)
 
-    const validatedData = userSchema.partial().parse(newData);
-
-    const updatedUser = await contactModel.update(id, validatedData);
+    const updatedUser = await userModel.update(id, newData);
 
     return updatedUser;
 }

@@ -33,7 +33,7 @@ const update = async (req, res, next) => {
     try {
         const { id } = req.params;
         const updateData = req.body;
-        const updatedUser = await userService.updateUser(id, updateData);
+        const updatedUser = await userService.update(id, updateData);
         res.status(200).json(updatedUser);
     } catch (error) {
         next(error);
