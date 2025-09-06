@@ -1,19 +1,13 @@
 const userModel = require("../models/userModel");
-const userSchema = require("../schemas/userSchema")
-
-const validateExistenceById = async () => {
-    const existingUser = await userModel.findById(id);
-    if (!existingUser) throw new Error("Usuário não existe")
-
-    return contact
-}
+const userSchema = require("../schemas/userSchema");
+const ApiError = require("../../utils/apiError");
 
 const create = async (userData) => {
     const validatedData = userSchema.parse(userData);
     const existingContact = await userModel.findByEmail(userData.email);
 
     if (existingContact) {
-        throw new Error('Já existe um usuário com este email.');
+        throw new ApiError('Já existe um usuário com este email.', 409);
     }
 
     const newUser = await userModel.create(validatedData);
@@ -29,13 +23,13 @@ const getAll = async () => {
 const getById = async (id) => {
     const user = await userModel.getById(id)
 
-    if (!user) throw new Error("Usuário não existe")
+    if (!user) throw new ApiError("Usuário não existe", 404)
 
     return user;
 }
 
 const update = async (id, newData) => {
-    await validateExistenceById(id)
+    await getById(id)
 
     const validatedData = userSchema.partial().parse(newData);
 
@@ -45,8 +39,8 @@ const update = async (id, newData) => {
 }
 
 const destroy = async (id) => {
-    await validateExistenceById(id)
-    const destroyed = await userModel.destroy
+    await getById(id)
+    const destroyed = await userModel.destroy(id)
     return destroyed
 }
 

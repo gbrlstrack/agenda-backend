@@ -8,7 +8,7 @@ const userSchema = z.object({
     email: z.string({
         required_error: 'O email é obrigatório.',
     }).email({ message: 'Formato de email inválido.' }),
-    phone: z.string().length(11, { message: 'O telefone deve conter apenas 11 numeros' }),
+    phone: z.string().length(11, { message: 'O telefone deve conter apenas 11 numeros sem caracteres especiais ou separação Ex: XXXXXXXXX' }),
 });
 
 module.exports = userSchema

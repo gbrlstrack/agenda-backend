@@ -44,7 +44,7 @@ const destroy = async (req, res, next) => {
     try {
         const { id } = req.params;
         await userService.destroy(id);
-        res.status(204).send();
+        res.status(204).send("Excluido com sucesso!");
     } catch (error) {
         next(error);
     }
