@@ -11,7 +11,7 @@ router.route('/')
 
 router.route('/:id')
     .get(userController.getById)
-    .put(userController.update)
+    .put(validateSchema(userSchema), userController.update)
     .delete(userController.destroy)
 
 module.exports = router
