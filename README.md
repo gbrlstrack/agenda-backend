@@ -47,11 +47,6 @@ Este projeto é a parte servidora da aplicação "Agenda" e é consumido pelo [a
     ```env
     # Porta em que o servidor irá rodar (ex: 3001)
     PORT=3001
-
-    # URI de conexão com seu banco de dados MongoDB
-    # (Local) Ex: mongodb://127.0.0.1:27017/agendaDB
-    # (Cloud Atlas) Ex: mongodb+srv://user:pass@cluster.mongodb.net/agendaDB
-    DB_CONNECTION=SUA_URI_DE_CONEXAO_DO_MONGODB
     ```
 
 4.  **Execute o servidor (modo de desenvolvimento):**
